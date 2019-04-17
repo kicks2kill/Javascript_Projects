@@ -37,9 +37,11 @@ class HashTable {
     }
     values() {
         let valuesArr = [];
+        //iterate over the entire keyMap array
         for(let i = 0; i < this.keyMap.length; i++) {
+            //if it contains an item..
             if(this.keyMap[i]) {
-                //console.log(this.keyMap[i]);
+                //check for a subarray on that item
                 for(let j = 0; j < this.keyMap[i].length; j++){
                     if(!valuesArr.includes(this.keyMap[i][j][1])){
                          valuesArr.push(this.keyMap[i][j][1]);
