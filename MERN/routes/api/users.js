@@ -5,8 +5,14 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
+
+
+//load input validation
+const validateRegisterINput = require('../../validation/register');
+
 //Load User Model
 const User = require('../models/User');
+
 
 
 //@route GET api/users/test
@@ -20,10 +26,18 @@ router.get('/test', (req,res) => res.json({msg: "Users works!"}));
 //@desc     Register route
 //@access   public 
 router.post('/register',(req,res) => {
+
+    const { errors, isValid} = validateRegisterINput(req.body);
+
+    //check validation
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
     User.findOne({email: req.body.email})
     .then(user => {
         if(user) {
-            return res.status(400).json({email: 'Email already exists'});
+            errors.email = 'Email already exsits';
+            return res.status(400).json(errors);
         } else {
 
             const avatar = gravatar.url(req.body.email, {
