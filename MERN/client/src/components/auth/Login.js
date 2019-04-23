@@ -8,8 +8,6 @@ import React, { Component } from 'react'
             password: '',
             errors: {}
         };
-        this.onChange = this.onChange.bind(this); 
-        this.onSubmit = this.onSubmit.bind(this);
     }
 
     onChange = (e) => {
