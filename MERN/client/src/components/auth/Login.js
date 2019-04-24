@@ -14,6 +14,12 @@ import { loginUser } from '../../actions/authActions';
             errors: {}
         };
     }
+    componentDidMount() {
+      if(this.props.auth.isAuthenicated) {
+        this.props.history.push('/dashboard');
+      }
+    }
+
     componentWillReceiveProps = (nextProps) => {
       if(nextProps.auth.isAuthenicated) {
         this.props.history.push('/dashboard');
