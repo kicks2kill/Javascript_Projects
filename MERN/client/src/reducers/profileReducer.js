@@ -1,6 +1,6 @@
 import {  GET_PROFILE, PROFILE_LOADING, CLEAR_CURRENT_PROFILE } from '../actions/types';
 
-const initalState = {
+const initialState = {
     profile: null,
     profiles: null,
     loading: false,
