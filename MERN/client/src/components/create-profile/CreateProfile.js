@@ -210,7 +210,9 @@ import { createProfile } from '../../actions/profileActions';
                         />
 
                         <div className="mb-3">
-                            <button onClick={() => { this.setState(prevState => ({
+                            <button
+                            type="button"
+                             onClick={() => { this.setState(prevState => ({
                                 displaySocialInputs: !prevState.displaySocialInputs
                             }))}} classsName="btn btn-light" > 
                                 Add Social Network links
