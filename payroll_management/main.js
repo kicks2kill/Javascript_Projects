@@ -1,13 +1,4 @@
-/*
-    DEFINE THE THINGS THAT ARE NEEDED:
-        Employee Class:
-            Salaried?
-                Payrate/hr
-            Hours Worked
-            Overtime
-            id
-            email
-            
+/*            
 
     METHODS:
         ** THESE METHODS DO NOT HAVE A FRONT END SO EVERYTHING IS JUST BEING CONSOLE LOGGED **
