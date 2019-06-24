@@ -139,9 +139,10 @@ function getRole(empName) {
 function sortUsersByRole(empRole) {
     for(var i = 0; i < holder.length; i++) {
         var empHolder = holder[i];
-        if( empRole === empHolder.position) {
-            console.log(`User ` + empHolder.firstName + ` is in ${empRole}`);
+        if( empRole !== empHolder.position) {
+            console.log('This is not a valid position/role');
         }
+        console.log(`User ` + empHolder.firstName + ` is in ${empRole}`);
     }
 }
 
@@ -153,15 +154,13 @@ function sortIntoCategories() {
             console.log('User ' + empHolder.firstName + ' belongs to the IT field');
         } else if(empHolder.position === 'HR') {
             console.log('User ' + empHolder.firstName + ' belongs to the HR field');
-        } else {
+        } else if(empHolder.position === 'General') {
             console.log('User ' + empHolder.firstName + ' belongs to the General field');
+        } else {
+            console.log('Role entered is not a role that is used');
         }
     }
 }
-
-
-
-
 
 /*
 
@@ -347,7 +346,7 @@ function changeToHourly(empID) {
             emp.salaried = false;
             console.log("Employee is now listed as hourly");
         } else {
-            console.log('Employee is already lsited as hourly');
+            console.log('Employee is already listed as hourly');
         }
     }
 }
