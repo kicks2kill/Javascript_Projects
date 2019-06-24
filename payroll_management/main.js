@@ -19,7 +19,6 @@
         payOutHourlyEmployee - Complete(?)
         payOutSalariedEmployee - Complete(?)
         getRole - Complete(?)
-        sortUsersByRole - Complete(?)
         sortIntoCategories - Complete(?)
 */
 
@@ -139,16 +138,7 @@ function getRole(empFName,empLName) {
     console.log('Employee ' + emp.firstName + ' ' + emp.lastName + ' is a ' + emp.position);
 }
 
-//search using IT, HR and General
-function sortUsersByRole(empRole) {
-    for(var i = 0; i < holder.length; i++) {
-        var empHolder = holder[i];
-        if( empRole !== empHolder.position) {
-            console.log('This is not a valid position/role');
-        }
-        console.log(`User ` + empHolder.firstName + ` is in ${empRole}`);
-    }
-}
+
 
 //loop through all users and sort into categories based on their role
 function sortIntoCategories() {
@@ -158,11 +148,9 @@ function sortIntoCategories() {
             console.log('User ' + empHolder.firstName + ' ' + empHolder.lastName +  ' belongs to the IT field');
         } else if(empHolder.position === 'HR') {
             console.log('User ' + empHolder.firstName + ' ' + empHolder.lastName + ' belongs to the HR field');
-        } else if(empHolder.position === 'General') {
-            console.log('User ' + empHolder.firstName + ' ' + empHolder.lastName + ' belongs to the General field');
         } else {
-            console.log('Role entered is not a role that is used');
-        }
+            console.log('User ' + empHolder.firstName + ' ' + empHolder.lastName + ' belongs to the General field');
+        } 
     }
 }
 
@@ -275,14 +263,19 @@ function holdPayCheck(empID, hourlyRate, payDay = calculatePayDay(15)) {
 function addEmployee(id, email, firstName, lastName, payRate, salaried) {
         var newHolder = {id: id, email: email, firstName: firstName, lastName: lastName, payRate: payRate, salaried: salaried};
         
-        if(isString(newHolder.id) && isUndefined(newHolder.id) && isNull(newHolder.id) 
-         && isNumber(newHolder.email) && isUndefined(newHolder.email) && isNull(newHolder.email)) {
-            console.log('Please enter the appropriate type');
+        if(typeof newHolder.id === 'string'|| typeof newHolder.id === 'undefined' || typeof newHolder.id === 'null'
+        && typeof newHolder.email === 'number' || typeof newHolder.email === 'undefined' || typeof newHolder.email === 'null'
+        && typeof newHolder.firstName === 'number' || typeof newHolder.firstName === 'undefined' || typeof newHolder.firstName === 'null'
+        && typeof newHolder.lastName === 'number' || typeof newHolder.lastName === 'undefined' || typeof newHolder.lastName === 'null'
+        && typeof newHolder.payRate === 'string' || typeof newHolder.payRate === 'undefined' || typeof newHolder.payRate === 'null'
+        && typeof newHolder.salaried === 'number' || typeof newHolder.salaried === 'undefined' || typeof newHolder.salaried === 'null') {
+            console.log('Please enter the appropriate types');
         } else {
             holder.push(newHolder);
             console.log(holder);
         }
     }
+
 
 //naive version of remove employee by their ID
 function removeEmployee(empID) {
@@ -436,5 +429,4 @@ function addDeduction(empID,amt) {
     
     //changeEmployeeAddress(2,'Something street');
     //getRole('Joseph');
-    //sortUsersByRole('HR');
     //sortIntoCategories();
