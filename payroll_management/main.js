@@ -73,12 +73,18 @@ function user() {
 */
 
 //return the employee based on the name that is entered
-function findUser(empName) {
-    var elementPos = holder.map(function(x) { return x.firstName}).indexOf(empName);
+function findUser(empFName,empLName) {
+    var elementPos = holder.map(function(x) { return x.firstName}).indexOf(empFName);
     var objectFound = holder[elementPos];
-    console.log(objectFound);
-    return objectFound;
+    if(empFName === objectFound.firstName && empLName === objectFound.lastName) {
+        console.log(objectFound);
+        return objectFound;
+    } else {
+        console.log('please enter a valid first and last name');
+    }
 }
+
+
 
 //search for employee based on their first name and last name
 function findAddress(empFName, empLName) {
@@ -96,10 +102,8 @@ function findAddress(empFName, empLName) {
 function findEmail(empID) {
     for(var i =0; i < holder.length; i++) {
         var newHolder = holder[i];
-        var nameHolder = holder[i].firstName;
-        var emailHolder = holder[i].email;
         if(newHolder['id'] === empID) {
-            console.log('Employee ' + nameHolder + "'s email address is: " + emailHolder);
+            console.log('Employee ' + newHolder.firstName + "'s email address is: " + newHolder.email);
         }
     }
 }
@@ -126,13 +130,13 @@ function displayHourlyEmp() {
 }
 
 //get the role that the user is in
-function getRole(empName) {
-    var pos = holder.map(function(x) { return x.firstName}).indexOf(empName);
+function getRole(empFName,empLName) {
+    var pos = holder.map(function(x) { return x.firstName}).indexOf(empFName);
     var emp = holder[pos];
-    if(empName !== emp.firstName || empName.length === 0){
+    if(empFName !== emp.firstName && empLName !== emp.lastName || empName.length === 0){
        console.log('Please enter a valid user');
     }
-    console.log('Employee ' + emp.firstName + ' is a ' + emp.position);
+    console.log('Employee ' + emp.firstName + ' ' + emp.lastName + ' is a ' + emp.position);
 }
 
 //search using IT, HR and General
@@ -151,11 +155,11 @@ function sortIntoCategories() {
     for(var i = 0; i < holder.length; i++){
         var empHolder = holder[i];
         if(empHolder.position === 'IT') {
-            console.log('User ' + empHolder.firstName + ' belongs to the IT field');
+            console.log('User ' + empHolder.firstName + ' ' + empHolder.lastName +  ' belongs to the IT field');
         } else if(empHolder.position === 'HR') {
-            console.log('User ' + empHolder.firstName + ' belongs to the HR field');
+            console.log('User ' + empHolder.firstName + ' ' + empHolder.lastName + ' belongs to the HR field');
         } else if(empHolder.position === 'General') {
-            console.log('User ' + empHolder.firstName + ' belongs to the General field');
+            console.log('User ' + empHolder.firstName + ' ' + empHolder.lastName + ' belongs to the General field');
         } else {
             console.log('Role entered is not a role that is used');
         }
@@ -417,7 +421,7 @@ function addDeduction(empID,amt) {
     //addDeduction(1,5.00)
 
     //calculateMonthlyPay(8,5,4,30);
-
+    //findUser('William','Spicer');
     //removeEmployee(3);
     //addBonus(1,1.50);
     //addBonusToAll(5)
