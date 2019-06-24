@@ -25,12 +25,12 @@
 
 var Employee = {
     employeeCollection: [
-        {id: 1, email:'w@w.com', firstName: 'William', lastName: 'Spicer', payRate: 35.00, salaried: true,position:'IT', address:'111 Main street'},
-        {id: 2, email:'j@w.com', firstName: 'Joseph', lastName: 'Smith', payRate: 15.00, salaried: false,position:'IT', address:'213 Far road'},
-        {id: 3, email:'s@w.com', firstName: 'Samantha', lastName: 'Gordon', payRate: 25.00, salaried: true,position:'HR', address:'301 Street street'},
-        {id: 4, email:'s1@w.com', firstName: 'Sammy', lastName: 'Laing', payRate: 12.00, salaried: false,position: 'General', address:'0971 Apartment road'},
-        {id: 5, email:'e@w.com', firstName: 'Enzo', lastName: 'Matheau', payRate: 17.00, salaried: false,position:'General', address:'6521 Green road'},
-        {id: 6, email:'r@w.com', firstName: 'Ruby', lastName: 'Breezy', payRate: 40.00, salaried: true,position:'IT', address:'192 Daisy street'},
+        {id: 1, email:'w@w.com', firstName: 'William', lastName: 'Spicer', payRate: 35.00, salaried: true,position:'IT',contract: false, address:'111 Main street'},
+        {id: 2, email:'j@w.com', firstName: 'Joseph', lastName: 'Smith', payRate: 15.00, salaried: false,position:'IT',contract: true,  address:'213 Far road'},
+        {id: 3, email:'s@w.com', firstName: 'Samantha', lastName: 'Gordon', payRate: 25.00, salaried: true,position:'HR',contract: false,  address:'301 Street street'},
+        {id: 4, email:'s1@w.com', firstName: 'Sammy', lastName: 'Laing', payRate: 12.00, salaried: false,position: 'General',contract: true,  address:'0971 Apartment road'},
+        {id: 5, email:'e@w.com', firstName: 'Enzo', lastName: 'Matheau', payRate: 17.00, salaried: false,position:'General',contract: false,  address:'6521 Green road'},
+        {id: 6, email:'r@w.com', firstName: 'Ruby', lastName: 'Breezy', payRate: 40.00, salaried: true,position:'IT',contract: false,  address:'192 Daisy street'},
     ]
 };
 
@@ -128,14 +128,25 @@ function displayHourlyEmp() {
     }
 }
 
+function displayContractEmp() {
+    for(var i = 0; i < holder.length; i++) {
+        var keyHolder = holder[i];
+        if(keyHolder.salaried === false && keyHolder.contract === true) {
+            console.log(keyHolder);
+        }
+    }
+}
+
+
+
 //get the role that the user is in
 function getRole(empFName,empLName) {
     var pos = holder.map(function(x) { return x.firstName}).indexOf(empFName);
     var emp = holder[pos];
-    if(empFName !== emp.firstName && empLName !== emp.lastName || empName.length === 0){
+    if(empFName !== emp.firstName && empLName !== emp.lastName || empFName.length === 0){
        console.log('Please enter a valid user');
     }
-    console.log('Employee ' + emp.firstName + ' ' + emp.lastName + ' is a ' + emp.position);
+    console.log('Employee ' + emp.firstName + ' ' + emp.lastName + ' is in ' + emp.position);
 }
 
 
@@ -322,7 +333,7 @@ function changeToSalaried(empID) {
  if(!emp || emp.length === 0) {
      console.log('Please enter an actual employee ID');
  } else {
-     if(emp.salaried = true){
+     if(emp.salaried === true){
         console.log("Employee is already listed as salaried");
      } else {
         console.log('Employee is now listed as salaried');
@@ -337,7 +348,7 @@ function changeToHourly(empID) {
     if(!emp || emp.length === 0) {
         console.log('Please enter an actual employee ID');
     } else {
-        if(emp.salaried = true) {
+        if(emp.salaried === true) {
             emp.salaried = false;
             console.log("Employee is now listed as hourly");
         } else {
@@ -376,7 +387,7 @@ function addBonusToAll(amt) {
 for(var i = 0; i < holder.length; i++){
     var keyHolder = holder[i];
         keyHolder.payRate += isNumber(amt);
-        console.log("Payrate of " + amt + " has been added to " +  keyHolder.firstName + " amounting to $"  + keyHolder.payRate + " an hour");
+        console.log("Payrate of $" + amt + " has been added to " +  keyHolder.firstName + " amounting to $"  + keyHolder.payRate + " an hour");
     }
 }
 
@@ -410,8 +421,6 @@ function addDeduction(empID,amt) {
 */
 
     //addDeduction(1,5.00)
-
-    //calculateMonthlyPay(8,5,4,30);
     //findUser('William','Spicer');
     //removeEmployee(3);
     //addBonus(1,1.50);
@@ -428,3 +437,4 @@ function addDeduction(empID,amt) {
     //changeEmployeeAddress(2,'Something street');
     //getRole('Joseph');
     //sortIntoCategories();
+    //displayContractEmp();
