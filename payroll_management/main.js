@@ -18,17 +18,20 @@
         suspendEmployee - Complete(?)
         payOutHourlyEmployee - Complete(?)
         payOutSalariedEmployee - Complete(?)
+        getRole - Complete(?)
+        sortUsersByRole - Complete(?)
+        sortIntoCategories - Complete(?)
 */
 
 
 var Employee = {
     employeeCollection: [
-        {id: 1, email:'w@w.com', firstName: 'William', lastName: 'Spicer', payRate: 35.00, salaried: true, address:'111 Main street'},
-        {id: 2, email:'j@w.com', firstName: 'Joseph', lastName: 'Smith', payRate: 15.00, salaried: false, address:'213 Far road'},
-        {id: 3, email:'s@w.com', firstName: 'Samantha', lastName: 'Gordon', payRate: 25.00, salaried: true, address:'301 Street street'},
-        {id: 4, email:'s1@w.com', firstName: 'Sammy', lastName: 'Laing', payRate: 12.00, salaried: false, address:'0971 Apartment road'},
-        {id: 5, email:'e@w.com', firstName: 'Enzo', lastName: 'Matheau', payRate: 17.00, salaried: false, address:'6521 Green road'},
-        {id: 6, email:'r@w.com', firstName: 'Ruby', lastName: 'Breezy', payRate: 30.00, salaried: true, address:'192 Daisy street'},
+        {id: 1, email:'w@w.com', firstName: 'William', lastName: 'Spicer', payRate: 35.00, salaried: true,position:'IT', address:'111 Main street'},
+        {id: 2, email:'j@w.com', firstName: 'Joseph', lastName: 'Smith', payRate: 15.00, salaried: false,position:'IT', address:'213 Far road'},
+        {id: 3, email:'s@w.com', firstName: 'Samantha', lastName: 'Gordon', payRate: 25.00, salaried: true,position:'HR', address:'301 Street street'},
+        {id: 4, email:'s1@w.com', firstName: 'Sammy', lastName: 'Laing', payRate: 12.00, salaried: false,position: 'General', address:'0971 Apartment road'},
+        {id: 5, email:'e@w.com', firstName: 'Enzo', lastName: 'Matheau', payRate: 17.00, salaried: false,position:'General', address:'6521 Green road'},
+        {id: 6, email:'r@w.com', firstName: 'Ruby', lastName: 'Breezy', payRate: 40.00, salaried: true,position:'IT', address:'192 Daisy street'},
     ]
 };
 
@@ -121,6 +124,44 @@ function displayHourlyEmp() {
         }
     }
 }
+
+//get the role that the user is in
+function getRole(empName) {
+    var pos = holder.map(function(x) { return x.firstName}).indexOf(empName);
+    var emp = holder[pos];
+    if(empName !== emp.firstName || empName.length === 0){
+       console.log('Please enter a valid user');
+    }
+    console.log('Employee ' + emp.firstName + ' is a ' + emp.position);
+}
+
+//search using IT, HR and General
+function sortUsersByRole(empRole) {
+    for(var i = 0; i < holder.length; i++) {
+        var empHolder = holder[i];
+        if( empRole === empHolder.position) {
+            console.log(`User ` + empHolder.firstName + ` is in ${empRole}`);
+        }
+    }
+}
+
+//loop through all users and sort into categories based on their role
+function sortIntoCategories() {
+    for(var i = 0; i < holder.length; i++){
+        var empHolder = holder[i];
+        if(empHolder.position === 'IT') {
+            console.log('User ' + empHolder.firstName + ' belongs to the IT field');
+        } else if(empHolder.position === 'HR') {
+            console.log('User ' + empHolder.firstName + ' belongs to the HR field');
+        } else {
+            console.log('User ' + empHolder.firstName + ' belongs to the General field');
+        }
+    }
+}
+
+
+
+
 
 /*
 
@@ -391,3 +432,6 @@ function addDeduction(empID,amt) {
     //payOutSalariedEmployee(1,35);
     
     //changeEmployeeAddress(2,'Something street');
+    //getRole('Joseph');
+    //sortUsersByRole('HR');
+    //sortIntoCategories();
