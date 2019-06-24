@@ -20,6 +20,7 @@
         payOutSalariedEmployee - Complete(?)
         getRole - Complete(?)
         sortIntoCategories - Complete(?)
+        reimburseEmployee **TODO**
 */
 
 
@@ -417,6 +418,24 @@ function addDeduction(empID,amt) {
 }
 
 
+
+function reimburseEmployee(empID, amt) {
+    var pos = holder.map(function(x) { return x.id}).indexOf(empID);
+    var emp = holder[pos];
+    emp.hasTraveled = true;
+    if(!emp || emp.length === 0 ) {
+        console.log('Employee can not be found');
+    } 
+    if(emp.id === empID) {
+        if( emp.hasTraveled && amt < 2500) {
+            console.log('Reimbursing $' + amt + ' to employee ' + emp.firstName);
+        } else {
+            console.log('Amount exceeds per diem. Please call (1)800-788-8888');
+        }
+    }
+}
+
+
 /*
 
    END OF METHODS TO ADD BONUSES/MAKE DEDUCTIONS
@@ -441,3 +460,4 @@ function addDeduction(empID,amt) {
     //getRole('Joseph');
     //sortIntoCategories();
     //displayContractEmp();
+   //reimburseEmployee(1,2500);
