@@ -51,7 +51,7 @@ function isNull(n) {
 }
 
 function isNumber(num) {
-    return typeof(num) === 'Number' || num instanceof Number;
+    return typeof(num) === 'number' || num instanceof Number;
 }
 
 //want to figure out how to implement in other methods
@@ -259,17 +259,15 @@ function holdPayCheck(empID, hourlyRate, payDay = calculatePayDay(15)) {
 
 */
 
-
-function addEmployee(id, email, firstName, lastName, payRate, salaried) {
+    function addEmployee(id, email, firstName, lastName, payRate, salaried) {
         var newHolder = {id: id, email: email, firstName: firstName, lastName: lastName, payRate: payRate, salaried: salaried};
-        
-        if(typeof newHolder.id === 'string'|| typeof newHolder.id === 'undefined' || typeof newHolder.id === 'null'
-        && typeof newHolder.email === 'number' || typeof newHolder.email === 'undefined' || typeof newHolder.email === 'null'
-        && typeof newHolder.firstName === 'number' || typeof newHolder.firstName === 'undefined' || typeof newHolder.firstName === 'null'
-        && typeof newHolder.lastName === 'number' || typeof newHolder.lastName === 'undefined' || typeof newHolder.lastName === 'null'
-        && typeof newHolder.payRate === 'string' || typeof newHolder.payRate === 'undefined' || typeof newHolder.payRate === 'null'
-        && typeof newHolder.salaried === 'number' || typeof newHolder.salaried === 'undefined' || typeof newHolder.salaried === 'null') {
-            console.log('Please enter the appropriate types');
+        if(isString(newHolder.id) || isUndefined(newHolder.id) || isNull(newHolder.id)
+        || isNumber(newHolder.email) || isUndefined(newHolder.email) || isNull(newHolder.email)
+        || isNumber(newHolder.firstName) || isUndefined(newHolder.firstName) || isNull(newHolder.firstName)
+        || isNumber(newHolder.lastName) || isUndefined(newHolder.lastName) || isNull(newHolder.lastName)
+        || isString(newHolder.payRate) || isUndefined(newHolder.payRate) || isNull(newHolder.payRate)
+        || isString(newHolder.salaried) || isNumber(newHolder.salaried) || isUndefined(newHolder.salaried) || isNull(newHolder.salaried)) {
+            console.log('Please enter the approriate values for each field');
         } else {
             holder.push(newHolder);
             console.log(holder);
