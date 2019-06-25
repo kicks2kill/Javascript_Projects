@@ -18,9 +18,10 @@
         suspendEmployee - Complete(?)
         payOutHourlyEmployee - Complete(?)
         payOutSalariedEmployee - Complete(?)
-        getRole - Complete(?)
+        getRoleEmployee - Complete(?)
         sortIntoCategories - Complete(?)
-        reimburseEmployee **TODO**
+        reimburseEmployee - Complete(?)
+        changeFieldPosition - Complete(?)
 */
 
 
@@ -44,11 +45,11 @@ function isString(s) {
 
 
 function isUndefined(u) {
-    return typeof(u) === 'undefined';
+    return typeof(u) === 'undefined' || n.length === 0;
 }
 
 function isNull(n) {
-    return typeof(n) === 'null' || n.length === 0;;
+    return typeof(n) === 'null' || n.length === 0;
 }
 
 function isNumber(num) {
@@ -139,17 +140,15 @@ function displayContractEmp() {
 }
 
 
-
 //get the role that the user is in
-function getRole(empFName,empLName) {
-    var pos = holder.map(function(x) { return x.firstName}).indexOf(empFName);
+function getRoleEmployee(empID) {
+    var pos = holder.map(function(x) { return x.id}).indexOf(empID);
     var emp = holder[pos];
-    if(empFName !== emp.firstName && empLName !== emp.lastName || empFName.length === 0){
+    if(empID !== emp.id){
        console.log('Please enter a valid user');
     }
-    console.log('Employee ' + emp.firstName + ' ' + emp.lastName + ' is in ' + emp.position);
+    console.log('Employee ' + emp.firstName + ' is in ' + emp.position);
 }
-
 
 
 //loop through all users and sort into categories based on their role
@@ -373,6 +372,25 @@ function changeEmployeeAddress(empID,empAddress) {
 }
 
 
+function changeFieldPosition(empID,position) {
+    for(var i = 0; i < holder.length; i++){
+        var empHolder = holder[i];
+        if(!empHolder) {
+            console.log('There is no employee by this ID');
+        }
+        else if( empID === empHolder.id && empHolder.position === position) {
+            console.log('Employee is already in that position');
+        } else if( empID === empHolder.id || isNumber(position) || isNull(position) || isUndefined(position)) {
+            console.log('Please enter an actual position type');
+        } 
+        if(empID === empHolder.id && empHolder.position !== position){
+            console.log('Employee ' + empHolder.firstName + ' has been moved from ' + empHolder.position + ' to ' + position);
+        }
+    }
+}
+
+
+
 /*
 
    END OF METHODS TO CHANGE PAYMENT/EMPLOYEE INFO TYPE
@@ -457,7 +475,8 @@ function reimburseEmployee(empID, amt) {
     //payOutSalariedEmployee(1,35);
     
     //changeEmployeeAddress(2,'Something street');
-    //getRole('Joseph');
+    //getRoleEmployee('Joseph');
     //sortIntoCategories();
     //displayContractEmp();
    //reimburseEmployee(1,2500);
+   //changeFieldPosition(1,'a');
