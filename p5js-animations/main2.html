@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+    <script>
+    var locationX, locationY, velX, velY, gX, gY;
+    function setup() {
+        createCanvas(400,400);
+        locationX = 100;
+        locationY = 100;
+        velX = 2.5;
+        velY = 2.1;
+        gX = 0;
+        gY = 0.2;
+    }
+
+    function draw() {
+        background(0);
+        
+        locationX += velX;
+        locationY += velY;
+        velX += gX;
+        velY += gY;
+        
+        if((locationX > width) || (locationX<0)){
+            velX *= -1;
+        }
+        if(locationY>height){
+            velY *= -0.95;
+            locationY = height;
+        }
+        
+        stroke(255);
+        strokeWeight(2);
+        fill(90);
+        ellipse(locationX, locationY, 50, 50);
+}
+</script>
+  </head>
+  <body>
+  </body>
+</html>
