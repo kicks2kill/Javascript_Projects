@@ -56,6 +56,7 @@ function addEmployee(emp) {
     if(!emp || emp.length === 0) {
         console.log('No employee was passed in, or employee field was empty');
     }
+    checkEmployeeCredentialsAreCorrect(emp);
     empArr.push(emp);
     console.log(empArr);
 }
@@ -77,9 +78,31 @@ function getUserInfo(emp) {
     console.log(emp);
 } 
 
+//figure out why this is returning [object Object]
+function calculatePayFromUser(emp) {
+    if(!emp || emp.length === 0) {
+        console.log('Cannot calculate from non-existent employee user');
+    }
+    var hourly = emp.payRate;
+    var weeksWorked = 4;
+    var daysWorked = 5;
+    var dailyHours = 8;
+    
+    if(hourly !== emp.payRate) {
+        console.log('Something went wrong... payrate does not match');
+    }
+    if(dailyHours < 8) {
+        //Do Something here
+    }
+    var total = ((weeksWorked * daysWorked) * dailyHours) * hourly;
+    console.log('Employee ' + emp + ' is receiving $' + total + ' this month');
+}
+
+//addEmployee(emp);
+//calculatePayFromUser(emp);
 
 //getUserInfo(emp);
-//addEmployee(emp);
+
 //removeEmployee(emp);
 
 
