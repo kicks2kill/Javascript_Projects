@@ -45,7 +45,7 @@ function isString(s) {
 
 
 function isUndefined(u) {
-    return typeof(u) === 'undefined' || n.length === 0;
+    return typeof(u) === 'undefined' || u.length === 0;
 }
 
 function isNull(n) {
