@@ -8,7 +8,7 @@ Vue.directive('highlight', {
     //el.style.backgroundColor = 'green';
     //el.style.backgroundColor = binding.value;
     if(binding.modifiers['delayed']) {
-      delay = 3000;
+     var  delay = 3000;
     }
     setTimeout(() => {
       if(binding.arg == 'background') {

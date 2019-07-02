@@ -12,7 +12,7 @@
        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
          <h1>Custom Directives</h1>
          <p v-highlight:background.delayed="'red'">Color this</p>
-        <p v-local-highlight:background.delayed.blink="'red'">Color this</p>
+        <p v-local-highlight:background.delayed.blink="{mainColor: 'red', secondColor: 'purple',delay: 1500}">Color this</p>
       </div>
     </div>
   </div>
@@ -25,38 +25,35 @@ export default {
   directives: {
     'local-highlight': {
       bind(el,binding,vnode) {
-    //el.style.backgroundColor = 'green';
-    //el.style.backgroundColor = binding.value;
-    if(binding.modifiers['delayed']) {
-      delay = 3000;
-    }
-    if(binding.modifiers['blink']){
-      var mainColor = binding.value;
-      var secondColor = 'blue';
-      let currentColor = mainColor;
-      setTimeout(() => {
-        setInterval(() => {
-        currentColor == secondColor ? currentColor = mainColor : currentColor = secondColor;
-        if(binding.arg == 'background') {
-          el.style.backgroundColor = currentColor;
+      if(binding.modifiers['delayed']) {
+        var delay = 3000;
+      }
+      if(binding.modifiers['blink']){
+        var mainColor = binding.value.mainColor;
+        var secondColor = binding.value.secondColor;
+        let currentColor = mainColor;
+        setTimeout(() => {
+          setInterval(() => {
+            currentColor == secondColor ? currentColor = mainColor : currentColor = secondColor;
+            if(binding.arg == 'background') {
+              el.style.backgroundColor = currentColor;
+            } else {
+              el.style.color = currentColor;
+            }
+          },binding.value.delay) 
+        },delay);
       } else {
-          el.style.color = currentColor;
+          setTimeout(() => {
+            if(binding.arg == 'background') {
+              el.style.backgroundColor = binding.value.mainColor;
+            } else {
+              el.style.color = binding.value.mainColor;
+            }
+          },delay);
         }
-        },3000)
-        
-      },delay);
-    } else {
-      setTimeout(() => {
-        if(binding.arg == 'background') {
-          el.style.backgroundColor = binding.value;
-      } else {
-          el.style.color = binding.value;
-        }
-      },delay);
+      }
     }
   }
-}
-}
 }
 </script>
 
