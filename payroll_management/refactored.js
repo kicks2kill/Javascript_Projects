@@ -87,12 +87,28 @@ function calculatePayFromUser(emp) {
     var weeksWorked = 4;
     var daysWorked = 5;
     var dailyHours = 8;
+    var holiday = false;
     
     if(hourly !== emp.payRate) {
         console.log('Something went wrong... payrate does not match');
     }
     if(dailyHours < 8) {
-        //Do Something here
+        var actualHoursWorked = 7;
+        var deduction = emp.payRate;
+        if(actualHoursWorked <= 7) {
+            var total = (((weeksWorked * daysWorked) * actualHoursWorked) * hourly) - deduction;
+        }
+    }
+    if(daysWorked < 5) {
+        var actualDaysWorked = 4;
+        var deduction = emp.payRate * dailyHours;
+        holiday = true;
+        if(actualDaysWorked <= 4 && !holiday) {
+            var total = (((weeksWorked * actualDaysWorked) * dailyHours) * hourly) - deduction;
+            //If !holiday.. deduction
+        } else {
+            var total = ((weeksWorked * daysWorked) * dailyHours) * hourly;
+        }
     }
     var total = ((weeksWorked * daysWorked) * dailyHours) * hourly;
     console.log('Employee ' + emp + ' is receiving $' + total + ' this month');
