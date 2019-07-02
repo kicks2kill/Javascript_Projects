@@ -71,6 +71,19 @@ function removeEmployee(emp) {
 }
 
 
+function suspendEmployee(emp) {
+    var suspendArr = [];
+    if(!emp || emp.length === 0) {
+        console.log("You can't remove a non-existent employee!");
+    }
+    emp.status = "suspended";
+    emp.payRate = 0;
+    emp.salaried = false;
+    suspendArr.push(emp);
+    console.log(suspendArr);
+}
+
+
 function getUserInfo(emp) {
     if(!emp || emp.length === 0) {
         console.log('No employee was passed in, or employee field was empty');
@@ -143,7 +156,7 @@ function addBonusToEmployee(emp, amt) {
     }
 }
 
-
+//suspendEmployee(emp);
 //addBonusToEmployee(emp, 3);
 //payOutEmployee(emp);
 //addEmployee(emp);
