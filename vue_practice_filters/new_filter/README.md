@@ -1,4 +1,4 @@
-# new_project
+# new_filter
 
 ## Project setup
 ```
