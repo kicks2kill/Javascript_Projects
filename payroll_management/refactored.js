@@ -112,8 +112,40 @@ function calculatePayFromUser(emp) {
     }
     var total = ((weeksWorked * daysWorked) * dailyHours) * hourly;
     console.log('Employee ' + emp + ' is receiving $' + total + ' this month');
+    return total;
 }
 
+
+function payOutEmployee(emp) {
+    var totalToPayOut = calculatePayFromUser(emp);
+    if(isUndefined(totalToPayOut) || isNull(totalToPayOut)) {
+        console.log("Can't determine how much to pay out...");
+    } else {
+        console.log('Employee has been successfully paid');
+    }
+}
+
+
+function addBonusToEmployee(emp, amt) {
+    if(!emp || emp.length === 0) {
+        console.log('No employee found');
+    }
+    if(isString(amt) || isNull(amt) || isUndefined(amt)){
+        console.log('Amount entered needs to be a number');
+    } else {
+        emp.payRate += amt;
+        if(emp.payRate >= 20) {
+            emp.salaried = true;
+        } else {
+            emp.salaried = false;
+        }
+        console.log('Employee hourly pay rate is now $' + emp.payRate);
+    }
+}
+
+
+//addBonusToEmployee(emp, 3);
+//payOutEmployee(emp);
 //addEmployee(emp);
 //calculatePayFromUser(emp);
 
