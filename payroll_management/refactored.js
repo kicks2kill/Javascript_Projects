@@ -4,7 +4,7 @@ function Employee(id, first, last, email, address, payRate,
     this.first = first;
     this.last = last;
     this.email = email;
-    this.address =address;
+    this.address = address;
     this.payRate = payRate;
     this.contract = contract;
     this.position = position;
@@ -139,6 +139,15 @@ function payOutEmployee(emp) {
 }
 
 
+function holdPayCheck(emp) {
+    var total = calculatePayFromUser(emp);
+    if(isUndefined(total) || isNull(total)) {
+        console.log("Can't determine the total amount");
+    }  else {
+        console.log('Total amount of $' + total + ' has been withheld from employee');
+    }
+}
+
 function addBonusToEmployee(emp, amt) {
     if(!emp || emp.length === 0) {
         console.log('No employee found');
@@ -156,6 +165,11 @@ function addBonusToEmployee(emp, amt) {
     }
 }
 
+
+
+
+
+//holdPayCheck(emp);
 //suspendEmployee(emp);
 //addBonusToEmployee(emp, 3);
 //payOutEmployee(emp);
