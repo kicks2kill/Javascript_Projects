@@ -36,20 +36,29 @@ if(isNull(emp.id) || isUndefined(emp.id) || isString(emp.id)) {
     console.log('There needs to be a number at this specified parameter');
 } 
 
-function checkEmployeeCredentialsAreCorrect(emp) {
-    if(isNull(emp.first) || isUndefined(emp.first) || isNumber(emp.first) ||
-       isNull(emp.last) || isUndefined(emp.last) || isNumber(emp.last)    || 
-       isNull(emp.email) || isUndefined(emp.email) || isNumber(emp.email) || 
-       isNull(emp.address) || isUndefined(emp.address) || isNumber(emp.address) || 
-       isNull(emp.payRate) || isUndefined(emp.payRate) || isString(emp.payRate) ||
-       isNull(emp.contract) || isUndefined(emp.contract) || isNumber(emp.contract) || isString(emp.contract) || 
-       isNull(emp.position) || isUndefined(emp.position) || isNumber(emp.position)||
-       isNull(emp.salaried) || isUndefined(emp.salaried) || isString(emp.salaried) || isNumber(emp.salaried)){
-       console.log('Please input the appropriate types into each field');
-   } else {
-       console.log('Everything looks good! Employee created');
-   }
-}
+function getUserInfo(emp) {
+        function checkEmployeeCredentialsAreCorrect(emp) {
+            if(isNull(emp.first) || isUndefined(emp.first) || isNumber(emp.first) ||
+                isNull(emp.last) || isUndefined(emp.last) || isNumber(emp.last)    || 
+                isNull(emp.email) || isUndefined(emp.email) || isNumber(emp.email) || 
+                isNull(emp.address) || isUndefined(emp.address) || isNumber(emp.address) || 
+                isNull(emp.payRate) || isUndefined(emp.payRate) || isString(emp.payRate) ||
+                isNull(emp.contract) || isUndefined(emp.contract) || isNumber(emp.contract) || isString(emp.contract) || 
+                isNull(emp.position) || isUndefined(emp.position) || isNumber(emp.position)||
+                isNull(emp.salaried) || isUndefined(emp.salaried) || isString(emp.salaried) || isNumber(emp.salaried)){
+                console.log('Please input the appropriate types into each field');
+            } else {
+                console.log('Everything looks good! Employee created');
+            }
+            return emp;
+        }
+        if(!emp || emp.length === 0) {
+           console.log('No employee was passed in, or employee field was left empty');
+        } else {
+            console.log(checkEmployeeCredentialsAreCorrect(emp));
+        }
+    }
+
 
 function addEmployee(emp) {
     var empArr = [];
@@ -83,13 +92,6 @@ function suspendEmployee(emp) {
     console.log(suspendArr);
 }
 
-
-function getUserInfo(emp) {
-    if(!emp || emp.length === 0) {
-        console.log('No employee was passed in, or employee field was empty');
-    }
-    console.log(emp);
-} 
 
 //figure out why this is returning [object Object]
 function calculatePayFromUser(emp) {
@@ -168,7 +170,7 @@ function addBonusToEmployee(emp, amt) {
 
 
 
-
+//getUserInfo(emp);
 //holdPayCheck(emp);
 //suspendEmployee(emp);
 //addBonusToEmployee(emp, 3);
@@ -181,5 +183,5 @@ function addBonusToEmployee(emp, amt) {
 //removeEmployee(emp);
 
 
-//checkEmployeeCredentialsAreCorrect(emp);
+
 
