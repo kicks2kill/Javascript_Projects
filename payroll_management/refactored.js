@@ -65,9 +65,8 @@ function addEmployee(emp) {
     if(!emp || emp.length === 0) {
         console.log('No employee was passed in, or employee field was empty');
     }
-    checkEmployeeCredentialsAreCorrect(emp);
+   getUserInfo(emp);
     empArr.push(emp);
-    console.log(empArr);
 }
 
 function removeEmployee(emp) {
