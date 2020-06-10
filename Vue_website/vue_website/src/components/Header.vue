@@ -5,7 +5,7 @@
       <p>Home</p>
       <p>Help</p>
       <p>Contact</p>
-      <img class="user-icon" src="../assets/user.svg"/>
+      <!-- <img class="user-icon" src="../assets/user.svg"/> -->
     </div>
   </div>
 </template>
@@ -25,12 +25,11 @@
 }
 
  .home-page-icon {
-  margin-right: 48em;
-  margin-top:1em;
+  margin-right: 45em;
+  padding-top: 1em;
   bottom:0;
-  padding: 0;
-  width: 4em;
-  height: 4em;
+  width: 3.5em;
+  height: 3.5em;
 }
 
 .row p {
@@ -38,17 +37,19 @@
   flex-grow: 1;
   flex-direction: row;
   flex-wrap: nowrap;
-  margin: 10px 5px;
+  margin: 5px 5px;
   text-align: right;
-  padding: 5px;
+  padding: 10px;
   color: white;
   opacity: 85%;
+  vertical-align: .5em;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .user-icon {
+  padding-right: 1em;
   width: 2em;
   height: 2em;
-  margin: 1.5em 1em -.3em 0;
 }
 
 </style>
