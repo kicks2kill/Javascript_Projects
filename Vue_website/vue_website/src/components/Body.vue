@@ -6,9 +6,6 @@
                 <p><em>CSS3</em></p>
             </div>
             <div>
-               
-            </div>
-            <div>
                 <img src="../assets/vue.png"/>
                  <p><em>VueJS</em></p>
             </div>
