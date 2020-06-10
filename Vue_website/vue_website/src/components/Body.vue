@@ -22,9 +22,7 @@
                  <p><em>Figma</em></p>
             </div>
         </div>
-        <div class="row">
-            <img src="../assets/myself.jpg" style="width:18em; height: 18em; border-radius: 10px;" alt="William Spicer"/>
-        </div>
+      
         <div class="row">
             <div style="width:100%;">
                 <p class="subject-paragraph"><em>Projects</em></p>
@@ -58,6 +56,8 @@ export default {
     display:inline-flex;
     flex-direction: row;
     justify-content: center;
+    margin: 5px;
+    border-radius: 5px;
 }
 
 .row div {
