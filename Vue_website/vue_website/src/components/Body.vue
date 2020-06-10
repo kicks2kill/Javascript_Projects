@@ -21,10 +21,10 @@
       
         <div class="row">
             <div style="width:100%;">
-                <p class="subject-paragraph"><em>Projects</em></p>
-                 <p style="opacity: 70%; font-size: 18px;">(Click for more information)</p> <!-- work on this -->
-                <img src="../assets/playstation.png" style="width: 10em; height: 10em; margin-right: 5em; margin-left: 2em; border: 1px solid white; border-radius: 5px;"/>
-                <img src="../assets/team.svg" style="width: 10em; height: 10em; border: 1px solid white; border-radius: 5px;"/>
+               <p class="subject-paragraph"><em>Projects</em></p>
+                 <p style="opacity: 70%; font-size: 18px; margin-left: 46em;">(Click for more information)</p> <!-- work on this -->
+                <img src="../assets/playstation.png" style="width: 10em; height: 10em; border: 1px solid white; border-radius: 5px; margin-left: 45em;" />
+                <img src="../assets/team.svg" style="width: 10em; height: 10em; border: 1px solid white; border-radius: 5px; margin-left: 5em; "/>
             </div>
         </div>
         <div class="row">
@@ -37,7 +37,7 @@
              <div style="width:100%;">
                 <p class="subject-paragraph">About me</p>
                 <span class="sub-text">Hello! I am William Spicer, a front-end engineer with a focus on desirability and usability. Currently, I have 3 years of experience designing and developing websites. I'm a strong believer of continous research and bettering myself as well as helping others do the same. When I'm not working or developing, I enjoy spending time researching into various topics such as; Chemistry, Math, and Art. I am an avid miniature painter and moderate a few painting discords in regards to that subject.</span>
-                <p style="font-size: 16px;"><strong>Find me on:</strong> </p>
+                <p style="font-size: 18px; margin-left: 0px; text-decoration: underline; text-decoration-color:#90ddf0; text-underline-position: under right;"><strong>Find me on:</strong> </p>
                 <a href="https://www.linkedin.com/in/william-spicer/"><img style="width: 5em; height: 5em; border-radius: 10px; " src="../assets/linkedin.png"/></a>
                 <a href="https://github.com/kicks2kill/"><img style="width: 5em; height: 5em; border-radius: 10px;" src="../assets/github.png"/></a>
                 <a href="mailto:w.spicerx@gmail.com"><img style="width: 5em; height: 5em; border-radius: 10px;" src="../assets/gmail.png"/></a>
@@ -70,6 +70,7 @@ export default {
     color: ivory;
     padding: 1em;
     border-radius: 1px;
+
 }
 img + p {
     margin-left: 0;
@@ -84,7 +85,6 @@ div img {
     width: 5em;
     height: 5em;
     padding: 5px;
-
 }
 
 .subject-paragraph {
