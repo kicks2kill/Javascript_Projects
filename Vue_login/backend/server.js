@@ -1,7 +1,15 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => res.send('test'));
+app.use(cors());
+
+
+app.get('/messages', (req, res) =>{
+    const messages = ["h", "1", "something else"];
+
+    res.send(messages);
+});
 
 app.listen(port, () => console.log('App is running'));

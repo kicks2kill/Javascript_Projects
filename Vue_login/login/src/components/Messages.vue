@@ -1,6 +1,7 @@
 <template>
   <div class="messages">
     <h4 class="display-1">Messages</h4>
+    {{messages}}
     <v-list>
       <v-list-tile>
       <v-list-tile-content>
@@ -12,11 +13,15 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
       messages: ["h", "1", "something else"]
     };
+  },
+  async created() {
+    this.messages = (await axios.get('http://localhost:3000/messages')).data;
   }
 };
 </script>
