@@ -104,6 +104,7 @@ div img {
 
 div a {
     color: white;
+    margin: 5px;
 }
 
 </style>
