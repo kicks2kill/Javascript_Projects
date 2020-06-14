@@ -11,19 +11,18 @@ router.get('/specific', (req, res) => {
     res.send("Specific posts");
 });
 
-router.post('/', (req,res) => {
+router.post('/',  async (req,res) => {
     //console.log(req.body);
     const post = new Post({
         title: req.body.title,
         description: req.body.description
     });
-    post.save()
-    .then( data => {
-        res.json(data);
-    })
-    .catch( err => {
-        
-    });
+    try {
+        const savedPost = await post.save();
+        res.json(savedPost);
+    } catch {
+        res.json({ message: err});
+    }
 });
 
 
