@@ -3,8 +3,13 @@ const router = express.Router();
 const Post = require('../models/Post');
 
 //ROUTES
-router.get('/posts', (req, res) => {
-    res.send("We are on posts");
+router.get('/posts', async (req, res) => {
+    try {
+        const posts = await Post.find();
+        res.json(posts);
+    }catch(err) {
+        res.json({message: err});
+    }
 });
 
 router.get('/specific', (req, res) => {
