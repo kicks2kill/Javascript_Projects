@@ -2,7 +2,7 @@ const express =  require('express');
 const router = express.Router();
 const Post = require('../models/Post');
 
-//ROUTES
+//GET BACK ALL POSTS
 router.get('/posts', async (req, res) => {
     try {
         const posts = await Post.find();
@@ -11,11 +11,7 @@ router.get('/posts', async (req, res) => {
         res.json({message: err});
     }
 });
-
-router.get('/specific', (req, res) => {
-    res.send("Specific posts");
-});
-
+//SUBMITS A POST
 router.post('/',  async (req,res) => {
     //console.log(req.body);
     const post = new Post({
@@ -30,5 +26,8 @@ router.post('/',  async (req,res) => {
     }
 });
 
+router.get("/:postId", (req, res) => {
+    console.log(req.params.postId);
+})
 
 module.exports = router;
