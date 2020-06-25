@@ -1,6 +1,6 @@
 <template>
-  <div class="container mx-auto my-20">
-    <div> <span>Filter By:</span> 
+  <div class="container mx-auto">
+    <div class="mt-8"> <span>Filter By:</span> 
       <select class="ml-2">
       <option>Most Recent</option>
       <option>Most Popular</option>
@@ -38,7 +38,15 @@
       </div>
     </div>
   </div>
-     <div><p class="opacity-75 mt-6">Showing 2 of 2</p></div>
+     <div class="float-right mr-56">
+      <p class="opacity-75 mt-2">Showing 2 of 2</p> 
+     <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mr-2">
+       Prev
+  </button>
+  <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+      Next
+  </button>
+</div>
 </div>
 </div>
 </template>

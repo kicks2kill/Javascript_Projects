@@ -7,7 +7,7 @@
     </div>
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
-        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4 border-b-2 border-grey-700 ">
             Home
         </a>
         <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">
@@ -15,6 +15,19 @@
         </a>
         </div>
     </div>
+    <div class="float-right">
+        <p class="text-white opacity-75">Logout</p>
+    </div>
 </nav>
 </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            
+        }
+    }
+}
+</script>
