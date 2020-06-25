@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <Home/>
+    <Header/>
+    <router-view></router-view>
+    <!-- <Footer class=" absolute bottom-0 ml-64" /> -->
   </div>
 </template>
 
 <script>
-import Home from './components/Home.vue'
+
+// import Footer from './components/Footer.vue'
+import Header from './components/Header.vue'
+
 
 export default {
   name: 'App',
   components: {
-    Home
-  }
+    // Footer,
+    Header,
+  },
 }
 </script>
 

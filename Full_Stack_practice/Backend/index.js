@@ -1,56 +1,37 @@
 const express = require('express');
-const app = express();
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
-const cors = require('cors');
 
 
+const app = express();
 app.use(cors());
+app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-let users = [{Name: "Jim", Password: "12345"}];
+const port = 3000;
 
-app.post('/',(req,res) => {
-    let userName = users[0];
-    let userPassword = users[1];
-    if(userName === 0) return ;
-    users.push(userName, userPassword);
-    res.json(users);
-});
+var users = [{userName: "Robert", password: "123456"}];
 
-app.get('/', (req,res) => {
-    let userName = users[0];
-    let userPassword = users[1];
-    if(userName === 0) return ;
-    users.push(userName, userPassword);
-    res.json(users);
-})
-
-
-
-
-
-app.post('/register', (req, res) => {
-    let registerData = req.body;
-    let newIdx = users.push(registerData);
-    let userId = newIdx - 1;
-    
-    let token = jwt.sign(userId, '12345');
-    res.json(token);
-});
-
-app.post('/login', (req, res) => {
+app.get('/Login', (req,res) => {
     let loginData = req.body;
+
     let userId = users.findIndex(user => user.userName === loginData.userName);
 
-    if(userId == -1 ) 
-        return res.status(401).send({message: 'Name or password is invalid'});
-
-    if(users[userId].password != loginData.password)
-        return res.status(401).send({message: 'Name or password is invalid'});
-
-    let token = jwt.sign(userId, '12345');
-    res.json(token);
+    if(userId == -1) {
+        return res.status(401).send({message: 'Name or Password is invalid. Please try again'});
+    }
+    if(users[userId].password !== loginData.password) {
+        return res.status(401).send({message: "Name or Password is invalid. Please try again"});
+    }
+    let token = jwt.sign(userId,'123456');
+    res.send(token);
 });
 
-app.listen(3000);
+app.get('/Home', (req,res) => {
+    if(users === null) return;
+//TODO: Check if users token is signed, if so then grant access.
+    res.send(users);
+});
+
+app.listen(port, () => console.log(`Server running at ${port}`));

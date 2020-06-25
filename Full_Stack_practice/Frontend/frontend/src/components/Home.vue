@@ -1,44 +1,50 @@
-
 <template>
-<div class=" container mx-auto">
-  <div class="flex mb-4">
-    <div class="w-1/4 bg-indigo-500 h-12"></div>
-    <div class="w-3/4 bg-indigo-700 h-12"></div>
-  </div>
-    <div class="flex mb-4 content-center m-32">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-        Username
-      </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+  <div class="container mx-auto my-20">
+    <div> <span>Filter By:</span> 
+      <select class="ml-2">
+      <option>Most Recent</option>
+      <option>Most Popular</option>
+      <option>Trending</option>
+      </select>
     </div>
-    <div class="mb-6">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-        Password
-      </label>
-      <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************">
-      <p class="text-red-500 text-xs italic">Please choose a password.</p>
-    </div>
-    <div class="flex items-center justify-between">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-        Sign In
-      </button>
-      <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 mx-8" href="#">
-        Forgot Password?
-      </a>
-    </div>
-  </form>
+    <div class="max-w-sm w-full my-4 lg:max-w-full lg:flex">
+      <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+      <div class="mb-8">
+        <div class="text-gray-900 font-bold text-xl mb-2">Can coffee make you a better developer?</div>
+        <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
+      </div>
+      <div class="flex items-center">
+        <img class="w-10 h-10 rounded-full mr-4" src="../assets/myself.jpg" alt="Avatar of William Spicer">
+        <div class="text-sm">
+          <p class="text-gray-900 leading-none">William Spicer</p>
+          <p class="text-gray-600">June 25</p>
+        </div>
+      </div>
     </div>
   </div>
+   <div class="mx-auto my-4">
+   <div class="max-w-sm w-full lg:max-w-full lg:flex">
+      <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+      <div class="mb-8">
+        <div class="text-gray-900 font-bold text-xl mb-2">Caffeine + Developer = ?</div>
+        <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
+      </div>
+      <div class="flex items-center">
+        <img class="w-10 h-10 rounded-full mr-4" src="../assets/myself.jpg" alt="Avatar of William Spicer">
+        <div class="text-sm">
+          <p class="text-gray-900 leading-none">William Spicer</p>
+          <p class="text-gray-600">June 24</p>
+        </div>
+      </div>
+    </div>
+  </div>
+     <div><p class="opacity-75 mt-6">Showing 2 of 2</p></div>
+</div>
+</div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld'
+
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
