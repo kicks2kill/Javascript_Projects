@@ -2,9 +2,9 @@
   <div class="container mx-auto">
       <div class="max-w-sm w-full lg:max-w-full lg:flex my-6 justify-center">
       <div class="border-solid border-2 p-8 border-gray-300 flex flex-col justify-between leading-normal">
-          <span>Create a post</span>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-blue-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text">
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded focus:outline-none focus:shadow-outline" type="button">Submit</button>
+          <span class="-mt-4  mb-2">Create a post</span>
+          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-blue-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text"/>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded focus:outline-none focus:shadow-outline w-24 ml-12 " type="button">Submit</button>
   </div>
 </div>
     <div class="mt-8"> 
@@ -21,7 +21,7 @@
     <div class="max-w-sm w-full my-4 lg:max-w-full lg:flex">
       <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal shadow-md">
         <div class="mb-8">
-          <div class="text-gray-900 font-bold text-xl mb-2">Can coffee make you a better developer?</div>
+          <div class="text-gray-900 font-bold text-xl mb-2">{{blogPost.text}}</div>
              <span class="text-gray-600 leading-none float-right -mt-8">Total Views: 109</span>
           <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
         </div>
@@ -65,7 +65,16 @@
 </template>
 
 <script>
-export default {
 
+export default {
+  data() {
+    return {
+      blogPost : []
+    }
+  },
+  async created() {
+    this.blogPost = (await this.$store.dispatch("getBlogPost",
+    this.$route.params.id)).data;
+  }
 }
 </script>

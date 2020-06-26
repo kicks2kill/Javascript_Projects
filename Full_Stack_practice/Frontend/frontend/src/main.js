@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import '@/assets/tailwind.css'
 import Home from '@/components/Home';
 import Login from '@/components/Login';
+import store from '../store';
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false
@@ -22,5 +23,6 @@ router.push()
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')
