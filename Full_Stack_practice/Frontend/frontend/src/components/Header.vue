@@ -16,7 +16,9 @@
         </div>
     </div>
     <div class="float-right">
-        <p class="text-white opacity-75">Logout</p>
+        <a class="text-white opacity-75">
+        Logout
+        </a>
     </div>
 </nav>
 </div>
