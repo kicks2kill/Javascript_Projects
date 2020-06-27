@@ -6,7 +6,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        blogPost: []
+        blogPost: [],
+        user: []
     },
     mutations: {
         newBlogPost(state, newPost) {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
         },
         updateBlogPost(state, blogPost) {
             state.blogPost = blogPost;
+        },
+        getLogin(state, login){
+            state.user = login;
         }
     },
     actions: {
@@ -26,6 +30,10 @@ export default new Vuex.Store({
         async getBlogPost({commit}) {
             let blogPost = (await axios.get("http://localhost:3000/Home")).data
             commit('updateBlogPost', blogPost);
+        },
+        async getLogin({commit}) {
+            let login = (await axios.get("http://localhost:3000/Login")).data
+            commit("getLogin", login);
         }
     },
 });
