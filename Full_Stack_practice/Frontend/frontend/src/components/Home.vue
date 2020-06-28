@@ -7,20 +7,12 @@
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded focus:outline-none focus:shadow-outline w-24 ml-12 " type="button">Submit</button>
   </div>
 </div>
-     <div class="float-left  mx-2 my-2">
-        <p class="text-indigo-700 text-lg -mt-4">Posters</p>
-      <div class="border-solid border-2 p-4 border-gray-300 flex flex-col justify-between leading-normal shadow-md">
-        <img class="w-10 h-10 rounded-full m-2" src="../assets/myself.jpg" alt="Avatar of William Spicer"> <span class="text-gray-600 text-xs ml-2">William</span>
-        <img class="w-10 h-10 rounded-full m-2" src="../assets/sanji.jpg" alt="Avatar of Sanji"> <span class="text-gray-600 text-xs ml-3">Sanji</span>
-        <img class="w-10 h-10 rounded-full m-2" src="../assets/luffy.jpg" alt="Avatar of Luffy">  <span class="text-gray-600 text-xs ml-4">Luffy</span>
-      </div>
-      </div>
-      <div class=" w-1/6 -mt-1 ">
+      <div class=" w-24 -mt-1 ">
         <p class="text-indigo-700 text-lg -mt-2">Shortcuts</p>
         <div class=" border-solid border-2 p-4 border-gray-300 flex flex-col justify-center leading-normal shadow-md ">
-           <p class="text-gray-600">Favorites</p>
-           <p class="text-gray-600">Liked</p>
-           <p class="text-gray-600">Shared</p>
+           <p class="text-gray-600 border-b-2 border-indigo-600 my-2">Favorites</p>
+           <p class="text-gray-600 border-b-2 border-indigo-600 my-2">Liked</p>
+           <p class="text-gray-600 border-b-2 border-indigo-600 my-2">Shared</p>
          </div>
       </div>
       <div class="w-1/3 mt-4">
@@ -31,9 +23,11 @@
           <img class="w-10 h-10 rounded-full m-2" src="../assets/Gaara.png" alt="Avatar of Gaara"/>
           <img class="w-10 h-10 rounded-full m-2" src="../assets/Uchiha_Itachi.png" alt="Avatar of Itachi"/>
           <img class="w-10 h-10 rounded-full m-2" src="../assets/kisame.png" alt="Avatar of Kisame"/>
+          <img class="w-10 h-10 rounded-full m-2" src="../assets/goku.jpg" alt="Avatar of Goku"/>
+          <img class="w-10 h-10 rounded-full m-2" src="../assets/frieza.png" alt="Avatar of Frieza"/>
         </div>
       </div>
-    <div class="mt-12"> 
+    <div class="mt-6"> 
     <span v-on:click="isHidden = true" v-if="!isHidden" class="text-red-700 text-lg ml-2">Hide Posts</span> 
     <span v-on:click="isHidden = false" v-if="isHidden" class="text-green-700 text-lg ml-2">Show Posts</span>
     <div class="float-right mr-56">
@@ -78,6 +72,7 @@
           </div>
         </div>
       </div>
+      
       <div class="float-right mr-56">
         <p class="opacity-75 mt-2">Showing 2 of 2</p> 
       <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mr-2">
