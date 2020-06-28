@@ -1,21 +1,6 @@
 <template>
   <div class="container mx-auto">
-      <div class="max-w-sm w-full lg:max-w-full lg:flex my-6 justify-center">
-      <div class="border-solid border-2 p-8 border-gray-300 flex flex-col justify-between leading-normal">
-          <span class="-mt-4  mb-2">Create a post</span>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-blue-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text"/>
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded focus:outline-none focus:shadow-outline w-24 ml-12 " type="button">Submit</button>
-  </div>
-</div>
-      <div class=" w-24 -mt-1 ">
-        <p class="text-indigo-700 text-lg -mt-2">Shortcuts</p>
-        <div class=" border-solid border-2 p-4 border-gray-300 flex flex-col justify-center leading-normal shadow-md ">
-           <p class="text-gray-600 border-b-2 border-indigo-600 my-2">Favorites</p>
-           <p class="text-gray-600 border-b-2 border-indigo-600 my-2">Liked</p>
-           <p class="text-gray-600 border-b-2 border-indigo-600 my-2">Shared</p>
-         </div>
-      </div>
-      <div class="w-1/3 mt-4">
+    <div class="w-1/3 mt-4">
       <p class="text-lg text-indigo-700"> Suggested Posters</p>
         <div class="border-solid border-2 p-2 border-gray-300 flex flex-row j leading-normal shadow-md">
           <img class="w-10 h-10 rounded-full m-2" src="../assets/Rock-Lee.png" alt="Avatar of Rock Lee"/>
@@ -27,6 +12,24 @@
           <img class="w-10 h-10 rounded-full m-2" src="../assets/frieza.png" alt="Avatar of Frieza"/>
         </div>
       </div>
+      <div class=" w-24 -mt-1 ">
+        <p class="text-indigo-700 text-lg ">Shortcuts</p>
+        <div class=" border-solid border-2 p-4 border-gray-300 flex flex-col justify-center leading-normal shadow-md ">
+           <p class="text-gray-600 border-b-2 border-indigo-600 my-2">Favorites</p>
+           <p class="text-gray-600 border-b-2 border-indigo-600 my-2">Liked</p>
+           <p class="text-gray-600 border-b-2 border-indigo-600 my-2">Shared</p>
+         </div>
+      </div>
+      <div class="max-w-sm w-full lg:max-w-full lg:flex mx-0 justify-end -ml-56 -mt-12">
+        <form class="border shadow-lg p-1">
+        <div class="flex items-end py-2 pr-6">
+          <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 p-2 px-10 leading-tight focus:outline-none" type="text" placeholder="Create a post">
+          <button class="flex-shrink-0 bg-indigo-500 hover:bg-indigo-700 border-indigo-500 hover:border-indigo-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+          Submit
+          </button>
+        </div>
+         </form>
+     </div>
     <div class="mt-6"> 
     <span v-on:click="isHidden = true" v-if="!isHidden" class="text-red-700 text-lg ml-2">Hide Posts</span> 
     <span v-on:click="isHidden = false" v-if="isHidden" class="text-green-700 text-lg ml-2">Show Posts</span>
