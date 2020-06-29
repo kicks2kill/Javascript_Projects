@@ -42,7 +42,7 @@ app.get('/Home', (req,res) => {
 
 app.post('/Home', (req,res) => {
     //TODO: make this only available upon logging in
-    let blogPost = {user: blogPosts.user, text: req.body.message};
+    let blogPost = {user: req.body.user, text: req.body.text};
     blogPosts.push(blogPost);
     res.json(blogPosts);
 })

@@ -25,7 +25,7 @@
         <form class="border shadow-lg p-1">
         <div class="flex items-end py-2 pr-6">
           <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 p-2 px-10 leading-tight focus:outline-none" type="text" placeholder="Create a post">
-          <button class="flex-shrink-0 bg-indigo-500 hover:bg-indigo-700 border-indigo-500 hover:border-indigo-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+          <button class="flex-shrink-0 bg-indigo-500 hover:bg-indigo-700 border-indigo-500 hover:border-indigo-700 text-sm border-4 text-white py-1 px-2 rounded" type="button" v-on:click="submit()">
           Submit
           </button>
         </div>
@@ -110,7 +110,7 @@
       <div v-if="!isHidden" class="max-w-sm w-full my-4 lg:max-w-full lg:flex">
       <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal shadow-md">
         <div class="mb-8">
-          <div class="text-gray-900 font-bold text-xl mb-2">Something Something Dark Side</div>
+          <div class="text-gray-900 font-bold text-xl mb-2">Something </div>
              <span class="text-gray-600 leading-none float-right -mt-8">Total Views: 302</span>
           <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
         </div>
@@ -145,13 +145,18 @@
 export default {
   data() {
     return {
-      blogPost : [],
+      messageBody: " ",
       isHidden: false,
     }
   },
-  async created() {
-    this.blogPost = (await this.$store.dispatch("getBlogPost",
-    this.$route.params.id)).data;
+  methods: {
+    async submit() {
+      try {
+        this.$store.dispatch('newBlogPost', this.messageBody);
+    } catch (error) {
+        console.log(error);
+      }
+    }
   }
 }
 </script>
