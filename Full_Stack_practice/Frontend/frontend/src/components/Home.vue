@@ -145,7 +145,7 @@
 export default {
   data() {
     return {
-      messageBody: " ",
+      messageBody: "",
       isHidden: false,
     }
   },
